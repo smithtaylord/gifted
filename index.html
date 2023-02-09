@@ -30,12 +30,12 @@
       <div class="row">
         <div class="col-4">
           <div class="">
-            <form type="submit">
+            <form type="submit" onsubmit="app.giftsController.createGift()">
               <label for="tag">Tag</label>
-              <input type="text" id="tag" name="tag">
+              <input type="text" id="tag" name="tag" required>
               <label for="url">url</label>
-              <input type="text" id="url" name="url">
-              <button class="btn btn-info">Submit</button>
+              <input type="text" id="url" name="url" required>
+              <button type="submit" class="btn btn-info">Submit</button>
             </form>
           </div>
         </div>

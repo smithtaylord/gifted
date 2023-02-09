@@ -3,6 +3,14 @@ import { Gift } from "../Models/Gift.js";
 import { sandboxApi } from "./AxiosService.js"
 
 class GiftsService {
+    async createGift(formData) {
+        const res = await sandboxApi.post('/api/gifts', formData)
+        console.log('form data res', res.data);
+        let newGift = new Gift(res.data)
+        appState.gifts.push(newGift)
+        console.log(appState.gifts);
+        appState.emit('gifts')
+    }
 
     async openGift(giftId) {
         let foundGiftIndex = appState.gifts.findIndex(g => g.id == giftId)
